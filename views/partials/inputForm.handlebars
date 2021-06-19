@@ -1,0 +1,59 @@
+{{!-- form to update and add table entries --}}
+<form id="update">
+  <table>
+    <thead>
+      <tr>
+      {{#each fields}}
+        <th>{{this.name}}</th>
+      {{/each}}
+      <th>unit</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      {{!-- make an input value for each text-like fields ('name', 'reps', 'weight', etc) --}}
+      {{!-- pre-fill with values given in values object --}}
+      {{#each fields}}
+        <td>
+          {{!-- <input id="{{this.name}}" type="{{this.type}}" name="{{this.name}}" value="{{lookup ../values this.name}}"> --}}
+          {{#with this}}
+            <input 
+              id="{{name}}" 
+              type="{{type}}" 
+              name="{{name}}" 
+              value="{{lookup ../values name}}"
+            >
+          {{/with}}
+        </td>
+      {{/each}}
+      {{!-- inputs for units. kg is default checked --}}
+      <td>
+        <label>lbs
+          <input
+            id="lbs" 
+            type="radio" 
+            name="unit" 
+            value="lbs" 
+            {{#if values.lbs}}checked{{/if}}
+          >
+        </label>
+        <br>
+        <label>kg
+          <input 
+            id="kg" 
+            type="radio" 
+            name="unit" 
+            value="kg" 
+            {{#if values.lbs}}{{else}}checked{{/if}}
+          >
+        </label>
+        </td>
+        {{!-- button to send the form (no submit button since forms can't do PUT anyway) --}}
+        <td>
+          <button id="updateButton" data-id="{{values.id}}">{{verb}}</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+</form>

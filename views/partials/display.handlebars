@@ -1,0 +1,42 @@
+{{!-- table to display entries --}}
+{{!-- also used to update entries after changing the database --}}
+<table class="display__table">
+  <thead>
+    <tr>
+      {{#each fields}}
+      <th>{{this.name}}</th>
+      {{/each}}
+      <th>unit</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{!-- loop through all the database rows (entries) --}}
+  {{#each entries as |entry|}}
+    <tr>
+    {{!-- loop through each of the main columns --}}
+    {{#each ../fields as |col|}}
+        {{!-- find the column in the entry --}}
+        <td>{{lookup entry col.name}}</td>
+    {{/each}}
+        {{!-- find the "unit" column in the entry --}}
+        <td>{{lookup entry "unit"}}</td>
+        <td>
+          {{!-- form to go to update page --}}
+          <form method="GET" action="{{siteURL}}/update">
+            <input type="hidden" name="id" value="{{entry.id}}" hidden>
+            {{!-- <button class="editButton" rowId={{entry.id}}>Edit</button> --}}
+            <input class="editButton" type="submit" value="Edit">
+          </form>
+        </td>
+        {{!-- button to delete an entry. --}}
+        {{!-- Each button gets rendered with an onclick --}}
+        {{!-- function specific to the entry id --}}
+        <td>
+          <button class="deleteButton" data-id={{entry.id}} onclick="deleteEntry({{entry.id}})">Delete</button>
+        </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

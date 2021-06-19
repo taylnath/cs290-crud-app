@@ -1,0 +1,16 @@
+<h1>Exercise Journal</h1>
+
+<h2>Add a workout to the table:</h2>
+
+{{!-- context passed in by app.js: fields, values, entries, siteURL --}}
+
+{{!-- inputForm uses fields, values  --}}
+{{> inputForm verb="Add"}}
+
+<h2>Use the table to track your workouts!</h2>
+<div id="table">
+  {{!-- display uses fields, entries, siteURL --}}
+  {{> display}}
+</div>
+
+<script src="home.js"></script>

@@ -1,0 +1,79 @@
+
+/* TODO: take out fieldset styling. Not currently used */
+
+body {
+  text-align: center;
+}
+
+table {
+  border: 4px ridge gray;
+  border-radius: 10px;
+  background-color: black;
+  margin: 10px auto;
+  margin-bottom: 15px;
+  /* min-width: 500px; */
+}
+
+caption {
+  font-size: large;
+  font-weight: bold;
+  margin: 20px;
+}
+
+td {
+  padding: 5px;
+  background-color: white;
+  /* text-align: center; */
+  /* text-align: left; */
+}
+
+th {
+  padding: 10px;
+  background-color: lightseagreen;
+}
+
+input {
+  max-width: 50px;
+}
+
+#date {
+  max-width: 150px;
+}
+
+form {
+  margin: 10px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+fieldset {
+  margin-top: 20px;
+}
+
+fieldset > fieldset {
+  margin: 10px 5px;
+  border: none;
+}
+
+fieldset > fieldset > legend {
+  border: 2px solid black;
+}
+
+label {
+  padding: 5px;
+}
+
+.submit {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.submit:hover {
+  background-color: lightskyblue;
+}
+
+.editButton {
+  text-align: center;
+  max-width: unset;
+  margin-top: 10px;
+}
